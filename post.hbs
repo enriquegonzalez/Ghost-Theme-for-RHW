@@ -1,0 +1,47 @@
+{{> header}}
+
+<main class="content" role="main">
+
+  <section class="section section--feature">
+    <header>
+      <h1 class="title">{{@blog.title}}</h1>
+      <p class="intro">{{@blog.description}}</p>
+    </header>
+  </section>
+
+
+    <article class="section">
+      {{#post}}
+        <header class="post-header">
+          <span class="post__meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></span>
+          <h1 class="post__title">{{{title}}}</h1>
+          <p class="post__author">Written by: {{author}}</p>
+        </header>
+            <section class="post__content">
+                {{content}}
+            </section>
+
+
+                <section class="share">
+                    <h1 class="share-this">Share this post</h1>
+                    <a class="button--share" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <button class="button radius button--share">Twitter</button>
+                    </a>
+                    <a class="button--share" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <button class="button radius button--share">Facebook</button>
+                    </a>
+                    <a class="button--share" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <button class="button radius button--share">Google+</button>
+                    </a>
+                </section>
+
+        {{/post}}
+
+    </article>
+
+</main>
+
+{{> footer}}
